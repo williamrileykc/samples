@@ -1,0 +1,105 @@
+// Colors
+$white: #ffffff;
+$black: #000000;
+$blue : #003f62;
+$pink : #f499b8;
+
+// Fonts
+$heading: 'Montserrat', Arial, Helvetica, sans-serif;
+$sans: Arial, Helvetica, sans-serif;
+
+// Mixins
+@mixin copy ($ff, $size, $color, $line:null) {
+	font-family: $ff;
+	font-size: $size;
+	color: $color;
+	@if ($line != null) {
+		mso-line-height-rule: exactly;
+	}
+	line-height: $line;
+
+    a {
+        color: $color;
+    }
+}
+
+// Best Practices
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+img {
+	display: block;
+	border: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+table,
+td,
+img {
+	box-sizing: border-box;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+    padding: 0;
+    margin: 0;
+}
+
+// Styles
+.container--main {
+    with: 600px;   
+}
+
+.main {
+    padding: 37px 0 13px;
+    background-color: $blue;
+    
+    &__heading {
+        @include copy($heading, 17px, $white);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding-bottom: 23px;
+    }
+
+    &__subheading {
+        @include copy($sans, 12px, $white);
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        padding-bottom: 3px;
+    }
+
+    &__copy {
+        @include copy($sans, 11px, $white, 20px);
+        padding-bottom: 10px;
+    }
+
+    &__button {
+        @include copy($heading, 16px, $white);
+        font-weight: bold;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        padding: 16px 32px 15px;
+        background-color: $pink;
+    }
+
+    &__disclaimer {
+        @include copy($sans, 8px, $white);
+        padding-top: 13px;
+    }
+}
+
+// Open pixels
+div img {
+    height: 1px;
+    width: 1px;
+    font-size: 1px;
+    line-height: 1px;
+}
